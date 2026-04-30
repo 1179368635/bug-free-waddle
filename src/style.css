@@ -1,0 +1,738 @@
+/* 全局样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  /* background-color: #f5f5f5; */
+}
+
+/* 页面容器 */
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #eff6ff;
+  padding-top: 100px;
+}
+
+/* 头部导航 */
+.site-header {
+  display: flex;
+  align-items: center;
+  background-color: #EFF6FF;
+  height: 100px;
+  padding:0 30px 0 64px;
+  gap:77px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-mark {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.brand-text {
+  font-size: 32px;
+    font-weight: bold;
+    color: #006FFF;
+    font-family: Alimama FangYuanTi VF;
+}
+
+.site-nav {
+  display: flex;
+  gap: 50px;
+  height: 100%;
+}
+
+.nav-link {
+  font-size: 18px;
+    font-weight: normal;
+    line-height: 26px;
+    color: #333333;
+    font-family: Source Han Sans;
+    background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.nav-link:hover {
+  color: #006FFF;
+}
+
+.nav-link.active {
+  color: #006FFF;
+  font-weight: 500;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #006FFF;
+  border-radius: 1px;
+}
+
+.download-button {
+  color: #fff;
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: normal;
+  background: linear-gradient(270deg, #6E78FF 0%, #006EFF 86%), #006EFF;
+  border:0px;
+  margin-left: auto;
+}
+
+.download-button:hover {
+  background-color: #0056b3;
+}
+
+.ghost-button {
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ghost-button:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.desktop-only {
+  display: none;
+}
+
+/* 英雄区域 */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f9fa;
+  background-image: url('./assets/imgs/bg_image2x.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  /* gap: 10px; */
+  padding: 41px 0px 0px 0px;
+  overflow: hidden;
+}
+
+.hero-copy {
+  /* max-width: 800px; */
+  display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.descript-tip{
+  background: linear-gradient(91deg, #5684FF 0%, #7C9EF8 94%);
+  -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: Source Han Sans;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0em;
+    margin: 0 0 20px 0;
+}
+.work-title{
+  color: #3679ff;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 250;
+    font-family: "Alibaba PuHuiTi 2.0";
+    line-height: 14px;
+    letter-spacing: 2.8px;
+}
+.eyebrow {
+  color: #333;
+  text-transform: uppercase;
+  font-family: Alimama FangYuanTi VF;
+font-size: 64px;
+font-weight: bold;
+line-height: normal;
+}
+
+.hero-section h1 {
+  /* font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333; */
+}
+
+.hero-text {
+  width: 300px;
+  height: 48px;
+  border-radius: 10px;
+  opacity: 1;
+  background: #ffffff;
+  box-shadow: 0 4px 10px 0 #dcebff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: #333333;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Roboto";
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.hero-text-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.hero-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.hero-points li {
+  font-size: 0.875rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-points li::before {
+  content: "•";
+  color: #007bff;
+  font-weight: bold;
+}
+
+.hero-visual {
+  /* position: relative;
+  max-width: 600px;
+  margin-top: 2rem; */
+}
+
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.hero-visual img {
+ width: 260px;
+    height: 260px;
+}
+
+/* 英雄卡片 */
+.hero-cards {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0 0 0;
+  margin: 70px 0 0 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-card {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+  max-width: 305px;
+  height: auto;
+  border-radius: 24px;
+  padding: 32px 32px 21px 32px;
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff80 34%, #ffffff80 78%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-card-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.hero-card-icon img {
+  object-fit: contain;
+}
+
+.hero-card h3 {
+  margin-bottom: 20px;
+  color: #202020;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Inter";
+}
+
+.hero-card p {
+
+  margin-bottom: 20px;
+color: #a1a1aa;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Inter";
+}
+
+.hero-card-tag {
+  width: 72px;
+    height: 32px;
+    border-radius: 6px;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+ font-weight: 400;
+ font-family: "Source Han Sans";
+ margin-top: auto;
+ align-self: flex-start;
+}
+
+/* 内容区域 */
+.content-section {
+  padding:72px 0px;
+  /* background-color: #fff; */
+  text-align: center;
+  display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section-heading {
+  /* max-width: 600px;
+  margin: 0 auto 3rem; */
+  display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.section-heading h2 {
+  font-size: 48px;
+    font-weight: 700;
+    font-family: "Alimama FangYuanTi VF";
+  color: #333;
+}
+.work-tip{
+  color: #006fff;
+ text-align: center;
+ font-size: 22px;
+ font-weight: 400;
+ font-family: "Source Han Sans";
+ line-height: 30px;
+ margin: 0px 0 0 0;
+}
+
+.section-heading p {
+
+}
+
+/* 步骤网格 */
+.step-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 938px;
+  margin: 56px auto 0;
+  flex-wrap: wrap;
+}
+
+.step-card {
+  text-align: center;
+  /* padding: 2rem 1rem; */
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+}
+
+.step-icon {
+  margin-bottom: 20px;
+}
+
+.icon-container {
+  width: 100px;
+  height: 100px;
+  /* background-color: #f0f7ff; */
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  /* border: 1px solid #e0e7ff; */
+}
+
+.icon-placeholder {
+  font-size: 24px;
+  font-weight: 600;
+  color: #007bff;
+}
+
+.icon-container img {
+ 
+  object-fit: contain;
+}
+
+.step-number {
+  font-family: Source Han Sans;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 120%;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.step-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.step-card p {
+  font-size: 0.875rem;
+  color: #a1a1aa;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.step-progress {
+  display: inline-block;
+  background-color: #f8f9fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.progress-text {
+  color: #007bff;
+}
+
+/* 场景网格 */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 4rem auto 0;
+}
+
+.scenario-card {
+  text-align: left;
+  /* padding: 1.5rem; */
+  /* background-color: #ffffff; */
+  /* border-radius: 12px; */
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); */
+  /* border: 1px solid #e0e7ff; */
+}
+
+.scenario-description{
+  color: #a1a1aa;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Inter";
+}
+
+.scenario-text{
+  background-color: #fff;
+    padding: 23px 30px;
+    border-radius: 0 0 20px 20px;
+    height: 130px;
+}
+
+.scenario-image {
+  position: relative;
+  /* margin-bottom: 1.5rem; */
+  /* border-radius: 8px; */
+  overflow: hidden;
+}
+
+.scenario-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.scenario-progress {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0 8px;
+  width: 72px;
+    height: 32px;
+    border-radius: 6px;
+    line-height: 32px;
+    font-size: 14px;
+ font-weight: 400;
+ background: #ffffff4d;
+}
+
+.scenario-progress .progress-text {
+  color: #ff4757;
+  font-weight: 600;
+}
+
+.card-tag {
+  
+}
+
+.scenario-card h3 {
+  color: #333;
+      font-size: 20px;
+    font-weight: 700;
+    font-family: "Source Han Sans";
+    margin: 0 0 16px 0;
+}
+
+.scenario-card p {
+  font-size: 14px;
+  color: #a1a1aa;
+  line-height: 1.4;
+}
+
+/* 优势网格 */
+.advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.advantage-card {
+  text-align: left;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.advantage-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.advantage-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* 页脚区域 */
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 50px 0;
+  /* background-color: #ffffff; */
+  text-align: center;
+  margin-top: 23px;
+  
+}
+
+.footer-content {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin: 100px 0 0 0;
+}
+
+.links-split{
+  margin: 0 15px;
+}
+.cta-visual{
+  width: 120px;
+}
+.cta-title{
+  font-size: 36px;
+    font-weight: bold;
+    line-height: normal;
+    color: #006FFF;
+}
+.cta-descript-tip{
+   background: linear-gradient(91deg, #5684FF 0%, #7C9EF8 94%);
+  -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: Source Han Sans;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0em;
+    margin: 0 0 20px 0;
+}
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 0.5rem;
+  margin-bottom: 0.5rem; */
+}
+
+.footer-logo img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.footer-brand {
+  font-family: Alimama FangYuanTi VF;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(88deg, #6BA4FF 0%, #006FFF 95%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.copyright {
+ font-family: Alibaba PuHuiTi 2.0;
+font-size: 14px;
+font-weight: normal;
+line-height: normal;
+text-align: center;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+font-feature-settings: "kern" on;
+color: #838FA5;
+}
+
+.footer-links {
+font-family: Alibaba PuHuiTi 2.0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: normal;
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-variation-settings: "opsz" auto;
+    font-feature-settings: "kern" on;
+    color: #838FA5;
+}
+
+.footer-links a {
+  font-family: Alibaba PuHuiTi 2.0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: normal;
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-variation-settings: "opsz" auto;
+    font-feature-settings: "kern" on;
+    color: #838FA5;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #006FFF;
+}
+
+/* 响应式设计 */
+@media (min-width: 768px) {
+  .desktop-only {
+    display: block;
+  }
+
+  .hero-section {
+    /* flex-direction: row;
+    text-align: left;
+    gap: 4rem; */
+  }
+
+  .hero-copy {
+    /* flex: 1; */
+  }
+
+  .hero-visual {
+    /* flex: 1;
+    margin-top: 0; */
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .site-header {
+    /* padding: 1rem 4rem; */
+  }
+
+  .hero-section {
+    /* padding: 6rem 4rem; */
+  }
+
+  .content-section {
+    /* padding: 6rem 4rem; */
+  }
+
+  .cta-section {
+    padding: 2rem 4rem;
+  }
+}
