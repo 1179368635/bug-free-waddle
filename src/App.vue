@@ -15,7 +15,7 @@ import imageScene1 from './assets/imgs/image_scene1.png'
 import imageScene2 from './assets/imgs/image_scene2.png'
 import imageScene4 from './assets/imgs/image_scene4.png'
 
-const DOWNLOAD_URL = 'http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setup.exe'
+// const DOWNLOAD_URL = 'http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setup.exe'
 
 import { ref } from 'vue'
 
