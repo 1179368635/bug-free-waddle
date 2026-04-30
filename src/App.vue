@@ -19,6 +19,27 @@ const DOWNLOAD_URL = 'http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setu
 
 import { ref } from 'vue'
 
+const downloadOptions = [
+  { label: 'V0.1.28-稳定版', url: 'http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setup.exe' },
+  { label: 'V0.1.30-尝鲜版', url: 'http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setup-preview.exe' },
+  { label: 'V0.1.31-内测版', url: 'http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setup-beta.exe' },
+]
+
+function handleOptionClick(url: string, _type: 'hero' | 'cta' | 'header') {
+  if (!url) {
+    // window.alert('exe 下载链接待补充，后续填入后即可直接下载。')
+    return
+  }
+  const link = document.createElement('a')
+  link.href = url
+  link.download = ''
+  link.target = '_blank'
+  link.rel = 'noopener'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
+
 const navItems = [
   { label: '功能优势', target: 'hero-cards' },
   { label: '快速上手', target: 'quick-start' },
@@ -132,21 +153,7 @@ function scrollToSection(target: string) {
   })
 }
 
-function handleDownload() {
-  if (!DOWNLOAD_URL) {
-    window.alert('exe 下载链接待补充，后续填入后即可直接下载。')
-    return
-  }
 
-  const link = document.createElement('a')
-  link.href = DOWNLOAD_URL
-  link.download = ''
-  link.target = '_blank'
-  link.rel = 'noopener'
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
-}
 </script>
 
 <template>
@@ -169,9 +176,22 @@ function handleDownload() {
         </button>
       </nav>
 
-      <button class="download-button desktop-only" type="button" @click="handleDownload">
-        立即下载
-      </button>
+      <div class="header-download-wrapper desktop-only">
+        <button class="download-button" type="button">
+          立即下载
+        </button>
+        <div class="header-download-menu">
+          <div
+            v-for="option in downloadOptions"
+            :key="option.label"
+            class="header-download-option"
+            @click="handleOptionClick(option.url, 'header')"
+          >
+            <img :src="microIcon" alt="Windows" class="hero-text-icon" />
+            <span>{{ option.label }}</span>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -183,9 +203,16 @@ function handleDownload() {
         <div class="hero-copy">
           <p class="eyebrow">福小智</p>
           <div class="descript-tip">随时随地，唤起你的桌面AI助手</div>
-          <div class="hero-text" @click="handleDownload">
-            <img :src="microIcon" alt="hero-text" class="hero-text-icon" />
-            Windows版本安装包
+          <div class="download-buttons-row">
+            <div
+              v-for="option in downloadOptions"
+              :key="option.label"
+              class="download-btn"
+              @click="handleOptionClick(option.url, 'hero')"
+            >
+              <img :src="microIcon" alt="Windows" class="hero-text-icon" />
+              <span>{{ option.label }}</span>
+            </div>
           </div>
           <div id="hero-cards" class="hero-cards">
             <article v-for="card in heroCards" :key="card.title" class="hero-card">
@@ -259,9 +286,16 @@ function handleDownload() {
         <div class="hero-copy">
           <p class="cta-title">福小智</p>
           <div class="cta-descript-tip">随时随地，唤起你的桌面AI助手</div>
-          <div class="hero-text" @click="handleDownload">
-            <img :src="microIcon" alt="hero-text" class="hero-text-icon" />
-            Windows版本安装包
+          <div class="download-buttons-row">
+            <div
+              v-for="option in downloadOptions"
+              :key="option.label"
+              class="download-btn"
+              @click="handleOptionClick(option.url, 'cta')"
+            >
+              <img :src="microIcon" alt="Windows" class="hero-text-icon" />
+              <span>{{ option.label }}</span>
+            </div>
           </div>
           </div>
         <div class="footer-content">
