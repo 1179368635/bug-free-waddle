@@ -17,22 +17,46 @@ import imageScene4 from './assets/imgs/image_scene4.png'
 
 // const DOWNLOAD_URL = 'http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setup.exe'
 
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
-const downloadOptions = [
+const downloadOptionsFallback = [
   { label: 'V0.1.28-稳定版', url: 'http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setup.exe' },
   { label: 'V0.1.30-尝鲜版', url: 'http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setup-preview.exe' },
   { label: 'V0.1.31-内测版', url: 'http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setup-beta.exe' },
 ]
 
-function handleOptionClick(url: string, _type: 'hero' | 'cta' | 'header') {
+type DownloadOption = {
+  label: string
+  url: string
+}
+
+const downloadOptions = ref<DownloadOption[]>(downloadOptionsFallback)
+
+async function loadDownloadOptions() {
+  try {
+    const configUrl = `${import.meta.env.BASE_URL}download-options.json`
+    const response = await fetch(configUrl, { cache: 'no-store' })
+
+    if (!response.ok) {
+      throw new Error(`Failed to load download options: ${response.status}`)
+    }
+
+    const data = await response.json()
+    downloadOptions.value = Array.isArray(data) ? data : downloadOptionsFallback
+  } catch (error) {
+    console.error('Failed to load download options config.', error)
+    downloadOptions.value = downloadOptionsFallback
+  }
+}
+
+function handleOptionClick(url: string, label: string) {
   if (!url) {
     // window.alert('exe 下载链接待补充，后续填入后即可直接下载。')
     return
   }
   const link = document.createElement('a')
   link.href = url
-  link.download = ''
+  link.download = label + '.exe'
   link.target = '_blank'
   link.rel = 'noopener'
   document.body.appendChild(link)
@@ -47,6 +71,10 @@ const navItems = [
 ]
 
 const activeNav = ref('advantages')
+
+onMounted(() => {
+  loadDownloadOptions()
+})
 
 const quickSteps = [
   {
@@ -185,7 +213,7 @@ function scrollToSection(target: string) {
             v-for="option in downloadOptions"
             :key="option.label"
             class="header-download-option"
-            @click="handleOptionClick(option.url, 'header')"
+            @click="handleOptionClick(option.url, option.label)"
           >
             <img :src="microIcon" alt="Windows" class="hero-text-icon" />
             <span>{{ option.label }}</span>
@@ -208,7 +236,7 @@ function scrollToSection(target: string) {
               v-for="option in downloadOptions"
               :key="option.label"
               class="download-btn"
-              @click="handleOptionClick(option.url, 'hero')"
+              @click="handleOptionClick(option.url, option.label)"
             >
               <img :src="microIcon" alt="Windows" class="hero-text-icon" />
               <span>{{ option.label }}</span>
@@ -291,7 +319,7 @@ function scrollToSection(target: string) {
               v-for="option in downloadOptions"
               :key="option.label"
               class="download-btn"
-              @click="handleOptionClick(option.url, 'cta')"
+              @click="handleOptionClick(option.url, option.label)"
             >
               <img :src="microIcon" alt="Windows" class="hero-text-icon" />
               <span>{{ option.label }}</span>
