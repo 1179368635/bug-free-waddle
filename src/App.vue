@@ -49,36 +49,36 @@ async function loadDownloadOptions() {
   }
 }
 
-async function handleOptionClick(url: string, label: string) {
+ function handleOptionClick(url: string, label: string) {
   if (!url) {
     // window.alert('exe 下载链接待补充，后续填入后即可直接下载。')
     return
   }
 
-  try {
-    const response = await fetch(url)
-    if (!response.ok) {
-      throw new Error(`下载失败: ${response.status}`)
-    }
+  // try {
+  //   const response = await fetch(url)
+  //   if (!response.ok) {
+  //     throw new Error(`下载失败: ${response.status}`)
+  //   }
 
-    const blob = await response.blob()
-    const blobUrl = URL.createObjectURL(blob)
+  //   const blob = await response.blob()
+  //   const blobUrl = URL.createObjectURL(blob)
 
     const link = document.createElement('a')
-    link.href = blobUrl
+    link.href = url
     link.download = label + '.exe'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
 
     // Delay revocation so the browser has time to start consuming the blob.
-    window.setTimeout(() => {
-      URL.revokeObjectURL(blobUrl)
-    }, 30_000)
-  } catch (error) {
-    console.error('下载出错:', error)
-    window.alert('下载失败，请稍后重试')
-  }
+  //   window.setTimeout(() => {
+  //     URL.revokeObjectURL(blobUrl)
+  //   }, 30_000)
+  // } catch (error) {
+  //   console.error('下载出错:', error)
+  //   window.alert('下载失败，请稍后重试')
+  // }
 }
 
 const navItems = [
