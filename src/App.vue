@@ -67,12 +67,14 @@ async function handleOptionClick(url: string, label: string) {
     const link = document.createElement('a')
     link.href = blobUrl
     link.download = label + '.exe'
-    link.target = '_blank'
-    link.rel = 'noopener'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
-    URL.revokeObjectURL(blobUrl)
+
+    // Delay revocation so the browser has time to start consuming the blob.
+    window.setTimeout(() => {
+      URL.revokeObjectURL(blobUrl)
+    }, 30_000)
   } catch (error) {
     console.error('下载出错:', error)
     window.alert('下载失败，请稍后重试')
