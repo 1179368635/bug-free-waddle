@@ -1,14 +1,14 @@
 [
   {
     "label": "V0.1.28-稳定版",
-    "url": "http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setup.exe"
+    "url": "http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/V0.1.28-稳定版.exe"
   },
   {
     "label": "V0.1.30-预览版",
-    "url": "http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setup-preview.exe"
+    "url": "http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/V0.1.30-预览版.exe"
   },
   {
     "label": "V0.1.31-内测版",
-    "url": "http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/fxz-Setup-beta.exe"
+    "url": "http://qub.ai.fj.cmcc:48801/devbucket/fxx-install/V0.1.31-内测版.exe"
   }
 ]
